@@ -1,0 +1,67 @@
+/*============================================================================*
+ * This is a css style sheet to be copied/used with                           *
+ * html documents exported from RenextGUI                                     *
+ *                                                                            *
+ * Author: Yves Deville <deville.yves@alpestat.com> for IRSN                  *
+ *                                                                            *
+ * https://gforge.irsn.fr/gf/project/renext.                                  *
+ *                                                                            *
+ * Note that the "R2HTML" package does not generate strict html and does not  *
+ * conform to the w3 specification (quotes for attributs, ... )               *
+ *                                                                            *
+ *============================================================================*/
+
+body { 
+    background-color: #dcdcdc; 
+    font-family: helvetica, arial, sans-serif;
+    text-decoration: none;
+    font-size: 11pt;
+}
+
+info {
+    font-size: 8pt;
+}
+
+h2 {
+    font-family: helvetica, arial, sans-serif;
+    text-decoration: none;
+    /*background-color: #E5E5E5;*/
+    font-size: 12pt;
+}
+
+table {
+    /*rules: "none";*/
+    background-color: #E5E5E5;   /* this is a light gray */
+}
+
+
+tr { 
+    font: 10pt sans-serif;
+    color: black;
+    text-decoration: none;
+    font-size: 10pt;
+}
+
+/*    this is used for tables such as return levels                         */
+td.cellinside {
+    padding-top: 3pt;
+    padding-bottom: 1pt;
+    padding-left: 10pt;
+    text-align: right;
+    color: blue;
+}
+
+/*  this could be used for 'summary' sections                               */
+div.summary {
+    /* font-family: monospace; */
+}
+
+div.info {
+    font-size: 9pt;
+}
+
+/* this is to enlighten the results in the summary                          */ 
+span.res {
+    color: blue;
+    font-weight:600;
+}

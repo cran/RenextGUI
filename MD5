@@ -1,0 +1,12 @@
+c072715ea15c8a73b92a3af096c625e0 *ChangeLog
+b3ad25f66895e5435b07ead41dd62514 *DESCRIPTION
+ebf833fdf106d2d078d9ec52b447923e *NAMESPACE
+a7b60b664445154bf365bcd9b0a03560 *R/HTMLmisc.R
+a875d24eacd5f49a5222847ae45043e7 *R/RenextGUI.R
+b85309977388ae680c7f42e379549efe *R/misc.R
+e3c88b64fb6137b8d23926bff7b2b1b4 *inst/doc/RenextGUIGuide.pdf
+5ad7e38ca413aac6810cd2ccf12f0516 *inst/reporting/ExIn.odt
+4af75f602579d8494a898532231b7132 *inst/reporting/reports-print.css
+4af75f602579d8494a898532231b7132 *inst/reporting/reports-screen.css
+4c6b9b87a41dd4eec7018e1249f8e2e4 *man/RenextGUI-package.Rd
+70baf6d268b6f44492194ab501fcea61 *man/RenextGUI.Rd
