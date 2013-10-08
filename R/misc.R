@@ -112,9 +112,7 @@ makeDemos <- function( ) {
   block <- 1
   Flow <- 1
   
-  require(Renext)
-  
-  data(Brest)
+  ## data(Brest)
   BrestData <- Brest$OTdata
   colnames(BrestData) <- c("date", "x")
   
@@ -139,7 +137,7 @@ makeDemos <- function( ) {
                      rMax2 = "",
                      rMax2Dur = "")
   
-  data(Garonne)
+  ## data(Garonne)
   
   GaronneData <- Garonne$OTdata
   colnames(GaronneData) <- c("date", "x")

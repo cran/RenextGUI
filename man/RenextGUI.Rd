@@ -10,7 +10,7 @@
 }
 \usage{
    RenextGUI(guiToolkit = c("tcltk", "RGtk2", "WWW"),
-             useGlobalenv = TRUE,
+             useGlobalenv = FALSE,
              debug = FALSE) 
 }
 \arguments{

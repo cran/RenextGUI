@@ -1,4 +1,30 @@
 
+	        CHANGES IN RenextGUI package VERSION 1.0-2
+	
+BUG FIXES
+	o The comparison on the version number (of Renext) did not work as
+	expected, which produced strange legends for Return Level plots.
+	
+CHANGES
+	o useGlobalenv default value turned to FALSE.	
+	
+	o Changed the Maintainer address, now the personal address of Lise
+	Bardet.
+	
+	o Removed: instructions 'library', 'require' as well as 'data'.
+	Changed 'x11()' into 'dev.new()'
+
+
+	CHANGES IN RenextGUI package VERSION 1.0-1
+	
+
+CHANGES
+
+	o A new argument 'label' is passed to the 'plot' method for
+	"Renouv" objects in order to get a suitable legend. This argument
+	does not exist in versions < 2.0-0 of Renext, hence a test on
+	version is carried out before calling plot.
+	
 	
 	
 		CHANGES IN RenextGUI package VERSION 1.0-0
@@ -7,15 +33,15 @@
 CHANGES
 
 	o Most global variables now can be set in a new environment
-	instead of the global one. This is done by turning the 
-	'useGlobalenv' formal to FALSE. A trick is used in order
-	to avoid the NOTE with message 'no visible global binding...' 
-	during the check. However, the dataset 'Brest' and 'Garonne' 
-	still remain in the global env.
+	instead of the global one. This is done by turning the
+	'useGlobalenv' formal to FALSE. A trick is used in order to avoid
+	the NOTE with message 'no visible global binding...'  during the
+	check. However, the dataset 'Brest' and 'Garonne' still remain in
+	the global env.
 
-	o Some call used partial matching (notably using 'cont'
-	in place of 'container'). They were tracked using the 
-	R-alpha version check and corrected.
+	o Some call used partial matching (notably using 'cont' in place
+	of 'container'). They were tracked using the R-alpha version check
+	and corrected.
 	
 	
 		CHANGES IN RenextGUI package VERSION 0.9-1
@@ -23,21 +49,21 @@ CHANGES
 
 CHANGES
 
-	o In the document 'RenextGUIGuide' and in the example
-	of the package it is advised to use 'options(warn = 1)'
-	before launching the GUI.
+	o In the document 'RenextGUIGuide' and in the example of the
+	package it is advised to use 'options(warn = 1)' before launching
+	the GUI.
 
-	o In the 'RenextGUIGuide' document, a few words were added
-	to tell that the GUI does not provide function for event
-	analysis. Since 'RenextGuide' is no longer provided as 
-	a vignette (with source) but rather as a pdf doc, some
-	small changes had to be done in the text.
+	o In the 'RenextGUIGuide' document, a few words were added to tell
+	that the GUI does not provide function for event analysis. Since
+	'RenextGuide' is no longer provided as a vignette (with source)
+	but rather as a pdf doc, some small changes had to be done in the
+	text.
 
 
 BUG FIXES
 
-	o There was a bug in the R Dump since it still used the 
-	old 'fit.Renouv' function while 'Renouv' must now be used.
+	o There was a bug in the R Dump since it still used the old
+	'fit.Renouv' function while 'Renouv' must now be used.
 
 	
 		CHANGES IN RenextGUI package VERSION 0.9-0
@@ -45,13 +71,11 @@ BUG FIXES
 
 CHANGES
 	
-	o The package now requires Renext >= 1.5 since the
-	fit is done using the 'Renouv' function in place	
-	of the 'fit.Renouv' function.
+	o The package now requires Renext >= 1.5 since the fit is done
+	using the 'Renouv' function in place of the 'fit.Renouv' function.
 
-	o The vignette warns the user that it may be necessary
-	to delete empty results when convergence problems 
-	occur.
+	o The vignette warns the user that it may be necessary to delete
+	empty results when convergence problems occur.
 
 	o When a dum R file is created it is no longer browsed
 	since this created problems under windows. The vignette 
@@ -64,30 +88,29 @@ CHANGES
 BUG FIXES
 
 	o When data were read from a csv file with non-POSIX date
-	format (e.g. %d/%m/%Y), the date was not converted to 
-	POSIXct, and thus the plot built by clciking on 'Plot'
-	in the 'data' tab was misleading.
+	format (e.g. %d/%m/%Y), the date was not converted to POSIXct, and
+	thus the plot built by clciking on 'Plot' in the 'data' tab was
+	misleading.
 	
 
 CHANGES
 	
-	o When a project is selected to be used for a fit, it
-	becomes 'locked', i.e. it ca nno longer be edited using
-	the widgets of the 'data' tab. These widgets are then 
-	disabled and should have a 'grayed' font.
+	o When a project is selected to be used for a fit, it becomes
+	'locked', i.e. it ca nno longer be edited using the widgets of the
+	'data' tab. These widgets are then disabled and should have a
+	'grayed' font.
 
-	o The export to ODT files is no longer supported.	
-	Consequently the packages 'XML', 'odfWeave' are no longer
-	required or suggested.
+	o The export to ODT files is no longer supported.  Consequently
+	the packages 'XML', 'odfWeave' are no longer required or
+	suggested.
 	
 	
 		CHANGES IN RenextGUI package VERSION 0.7-1
 
 BUG FIXES
 
-	o In the R dump, the program created contained a
-	syntax error in the case where only one historical block
-	was given.	
+	o In the R dump, the program created contained a syntax error in
+	the case where only one historical block was given.
 	
 	
  		CHANGES IN RenextGUI package VERSION 0.7-0
@@ -95,66 +118,62 @@ BUG FIXES
 NEW FEATURES 	
 	
 	o The Csv import wizard now allows the choice of the decimal
-	separator; point or comma  as enjoyed by french users.
+	separator; point or comma as enjoyed by french users.
 	
-	o New function (still experimental) allowing the "dump"
-	of a fit/result as a R program file whith comments.
+	o New function (still experimental) allowing the "dump" of a
+	fit/result as a R program file whith comments.
 
 CHANGES
 
-	o The button of the 'results' frame: 'Plot', ...
-	have been reordered.
+	o The button of the 'results' frame: 'Plot', ...  have been
+	reordered.
 
-	o The (non exported) method 'HTML.summary.Renouv'
-	now shows the values of the historical data when 
-	their number in a block is small enougn (<= 12).
-	This change does not yet appears in the 
-	'print.summary.Renouv' method since it needs a new
-	version of Renext.
+	o The (non exported) method 'HTML.summary.Renouv' now shows the
+	values of the historical data when their number in a block is
+	small enougn (<= 12).  This change does not yet appears in the
+	'print.summary.Renouv' method since it needs a new version of
+	Renext.
 	
 	
 BUG FIXES
 
-	o In the HTML export, the path of the png graph was
-	absolute, and thus the directory could not be moved
-	elsewhere in the file system. Now it is relative.
+	o In the HTML export, the path of the png graph was absolute, and
+	thus the directory could not be moved elsewhere in the file
+	system. Now it is relative.
 
-	o The copy/paste of results table to the clipboard
-	now supresses rownames and rounds the 'period' col.
-	to integers (years).
+	o The copy/paste of results table to the clipboard now supresses
+	rownames and rounds the 'period' col.  to integers (years).
 	
 	
 		CHANGES IN RenextGUI package VERSION 0.6-0
 	
 NEW FEATURES 	
 	
-	o New "csv Import Wizard" allowing to import csv files 
-	with several options: separator, header, skipped lines,
-	... The wizard tries to guess which columns are date,
-	numeric or anything else, and should recognize usual
-	date formats such as %d/%m/%Y which is popular in France
+	o New "csv Import Wizard" allowing to import csv files with
+	several options: separator, header, skipped lines, ... The wizard
+	tries to guess which columns are date, numeric or anything else,
+	and should recognize usual date formats such as %d/%m/%Y which is
+	popular in France
 	
-	o It is now possible to use projects with or without
-	a 'date'  column. An 'hasDate' flag is used
-	internally to code the availability of the date, 
-	and the plot of the data will be adapted if no
-	date is available.
+	o It is now possible to use projects with or without a 'date'
+	column. An 'hasDate' flag is used internally to code the
+	availability of the date, and the plot of the data will be adapted
+	if no date is available.
 	
 	o HTML export now uses 2 'css' files: screen and printer.
 
-	o It is now possible when two historical datasets are 
-	given to use each dataset separately, or to use both 
-	at the same time.
+	o It is now possible when two historical datasets are given to use
+	each dataset separately, or to use both at the same time.
 	
 
 BUG FIXES
 
-	o Using the "delete" button in either "data" or "fit"
-	screens, problems occured, especially when deleting the
-	last item. This is now fixed.
+	o Using the "delete" button in either "data" or "fit" screens,
+	problems occured, especially when deleting the last item. This is
+	now fixed.
 
-	o In this 'ChangeLog', the changes for version 0.5-0
-	where attributed to 0.4.7 which will not exist!
+	o In this 'ChangeLog', the changes for version 0.5-0 where
+	attributed to 0.4.7 which will not exist!
 
 
 	
@@ -163,49 +182,45 @@ BUG FIXES
 	
 NEW FEATURES 		
 			
-	o Export (still experimental) of results as "html"
-	i.e. as a directory containing a png graph and an
-	"index.html" file.
+	o Export (still experimental) of results as "html" i.e. as a
+	directory containing a png graph and an "index.html" file.
 	
 
 BUG FIXES
 
 	o Indexation problems inthe notebook "results" corrected.
 
-	o Colnames removed in the "paste to clipboard" 
-	for results table.
+	o Colnames removed in the "paste to clipboard" for results table.
 
-	
-	
+		
 		CHANGES IN RenextGUI package VERSION 0.4-6
 	
 			   
 CHANGES 		   
 	
 	o The csv file chosen with "browse" is now validated without
- 	clicking on the text edit.
+	clicking on the text edit.
 
 	o With the current 0.44-0 Rforge version of gWidgetstcltk, the
-	spinbutton for the threshold now validates even when it
-	is maintained with button 1 pressed. 
+	spinbutton for the threshold now validates even when it is
+	maintained with button 1 pressed.
 	
 	  	
 		CHANGES IN RenextGUI package VERSION 0.4.5
 
 NEW FEATURES 		
 			
-	o In the 'results' tab of the main window, it is possible
-	to copy to the clipboard one of the two tables containing 
-	the coefficients and the predictions. This is intendended
-	mainly for Windows users since Unix systems do not allow
-	writing to the clipboard. This may be used to copy/paste
-	in MS best sellers 'Excel' or 'Word'.
+	o In the 'results' tab of the main window, it is possible to copy
+	to the clipboard one of the two tables containing the coefficients
+	and the predictions. This is intendended mainly for Windows users
+	since Unix systems do not allow writing to the clipboard. This may
+	be used to copy/paste in MS best sellers 'Excel' or 'Word'.
 	
 			   
 CHANGES 		   
 	
-	o The glabel describing the main title 'Title' instead	
-	of 'Main title'
+	o The glabel describing the main title 'Title' instead of 'Main
+	title'
 	  
 	
 		CHANGES IN RenextGUI package VERSION 0.4-0
@@ -216,22 +231,22 @@ NEW FEATURES
     
 BUG FIXES
 
-	o Better validation of the fields (but yet limited control
-	of data values!)
+	o Better validation of the fields (but yet limited control of data
+	values!)
 	
 			   
 CHANGES 		   
 	
-	o The package now requires Renext (>=1.4) in order to allow
-	the choice of Tlim and/or problim, ylim...
-	  
+	o The package now requires Renext (>=1.4) in order to allow the
+	choice of Tlim and/or problim, ylim...
+qq	  
 	
 
 		CHANGES IN RenextGUI package VERSION 0.3-0
 
 NEW FEATURES 		
 			
-	o  export results as open office documents.
+	qo  export results as open office documents.
     
 CHANGES 		   
 	

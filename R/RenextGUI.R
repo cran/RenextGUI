@@ -28,7 +28,7 @@
 ##}
 
 RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
-                      useGlobalenv = TRUE,
+                      useGlobalenv = FALSE,
                       debug = FALSE)  {
 
   ## Create a new environment where most things will be stored?
@@ -42,8 +42,8 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
   DEBUG <- debug
   strW <- paste(rep(" ", 40), collapse = "")
   
-  require(gWidgets)
-  require(Renext)
+  ## require(gWidgets)
+  ## require(Renext)
   
   if (DEBUG) cat("initialisation tasks...")
   
@@ -186,11 +186,16 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     }
   
     svalue(datW$sb) <- ""
-    project <- ifelse(length(h$obj), svalue(h$obj), NA)
+    
+    if (length(h$obj[])) {
+      project <- svalue(h$obj)
+    } else {
+      project <- NA
+    }
 
     if (DEBUG) cat("project :   ", project, "\n")
     
-    if ( !is.na(project) ) {
+    if ( length(project) || !is.na(project) ) {
 
       item <- re$dataList[[project]]
 
@@ -340,7 +345,6 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
 
   tryReadCsv <- function(h, ...) {
     
-    
     if (DEBUG) {
       cat("entering 'tryReadCsv'\n")
       cat("source = ", h$action$source, "\n")
@@ -390,9 +394,12 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
       sep <- re$RLprov$.seps[as.integer(svalue(h$action$sep, index = TRUE))]
       if (DEBUG) cat("sep = ", sep, "\n")
       
-      
       header <- svalue(h$action$header)
       skip <- svalue(h$action$skip)
+      if (length(skip) == 0L) {
+        skip <-   svalue(h$action$skip) <- 0L
+        
+      }
       
       ## for later ???
       if (!is.null(h$action$dec)) {
@@ -697,8 +704,6 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     
   }
   
-  
-  
   ##============================================================================
   ## Create a new project by reading a csv file for the data part.
   ## 
@@ -723,10 +728,9 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
                                  indNum = integer(0),
                                  sep = 1L,
                                  header = TRUE,
-                                 skip = 0,
+                                 skip = 0L,
                                  dateFormat = "%Y-%m-%d",
                                  hasDate = FALSE)
-    
     
     fiTbl <- glayout(container = wFile, label = "Csv file import",
                      cexpand = TRUE, fill = "both")
@@ -751,13 +755,13 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     size(fiW$text) <- c(600, 100)
     ##==========================================================================
     fiTbl[5, 1] <- ( fiW$skipLab <- glabel("Skip lines", container = fiTbl))
-    fiTbl[5, 2:2] <- ( fiW$skip <- gspinbutton(from = 0,
-                                               to = 10, by = 1, container =fiTbl,
-                                               selected = 1 ))
+    fiTbl[5, 2:2] <- ( fiW$skip <- gspinbutton(from = 0, to = 10, by = 1,
+                                               value = 0, container = fiTbl))
     ##==========================================================================
     fiTbl[6, 1] <- ( fiW$headerLab <- glabel("Header?", container =fiTbl) )
     fiTbl[6, 2:6] <- ( fiW$header <- gcheckbox("header ON",
-                                               checked = TRUE, container =fiTbl) )
+                                               checked = TRUE,
+                                               container = fiTbl) )
     ##==========================================================================
     fiTbl[7, 1] <- ( fiW$decLab <- glabel("decimal sep", container = fiTbl))
     fiTbl[7, 2:6] <- ( fiW$dec <- gradio(items = names(re$RLprov$.decs),
@@ -790,7 +794,6 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     colTbl[2, 3] <- (fiW$dateFormat <- glabel("<none>    ", container = colTbl))
     colTbl[2, 4] <- (fiW$dateName <- glabel("date", container = colTbl))
     
-    
     colTbl[3, 1] <- (fiW$dateLab <- glabel("variable", container = colTbl))
     colTbl[3, 2] <- (fiW$varCol <- gcombobox(items = "<none>                ",
                                              selected = 1,
@@ -814,7 +817,6 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     fiW[["OK"]] <- gbutton("OK", container = gg,
                            handler = validNewCsvProject,
                            action = fiW)
-    
     ##===========================================================================
     fiW$sb <- gstatusbar(paste("Choose a \"fit\" name and edit the eff.",
                                "duration if needed."),
@@ -1168,7 +1170,7 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
                       multiple = TRUE,
                       expand = TRUE,
                       fill = "both",
-                      container =gg2)
+                      container = gg2)
       
       gPred <- gtable(items = roundPred(res$pred),
                       multiple = TRUE,
@@ -1249,10 +1251,15 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
       print(h$obj[])
     }
 
-    fitName <- ifelse( length(h$obj[]), svalue(h$obj), NA)
+    if (length(h$obj[])) {
+      fitName <- svalue(h$obj)
+    } else {
+      fitName <- NA
+    }
+    
     if (DEBUG) cat("fit:     ", fitName, "\n")
     
-    if ( !is.na(fitName) ) {
+    if ( length(fitName) && !is.na(fitName) ) {
 
       item <- re$fitsList[[fitName]]
       project <- item$project
@@ -1599,7 +1606,7 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
     fit <- svalue(fitW$fit)
     if (DEBUG) cat("fit = ", fit, "name = ", name, "\n")
                
-    if ( !is.na(fit) && (length(fit) > 0) ) {
+    if ( (length(fit) > 0) && !is.na(fit) ) {
       name <- h$action
       
       re$fitsList[[fit]][[name]] <- svalue(fitW[[name]])
@@ -2354,25 +2361,55 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
       ## This could be generalized in the future to
       ## actions before plotting and actions after...
       
-      if (h$action$device == "x11") x11()
+      if (h$action$device == "x11") dev.new()
       
       if (rlOpt$yLimSet == "auto") {
-        plot(re$resList[[resName]],
-             Tlim = Tlim, problim = problim,
-             main = rlOpt$main,
-             xlab = xLab, ylab = yLab)
-      } else {
-        cat ("ylim = ", as.numeric(c(rlOpt$yLimMin, rlOpt$yLimMax)), "\n")
-        plot(re$resList[[resName]],
-             Tlim = Tlim, problim = problim,
-             ylim = as.numeric(c(rlOpt$yLimMin, rlOpt$yLimMax)),
-             main = rlOpt$main,
-             xlab = xLab, ylab = yLab)
-      }
+
+        ## 'label' must be set for recent versions
+        if (packageVersion("Renext") >= "2.0-2") {
+          
+          plot(re$resList[[resName]],
+               Tlim = Tlim, problim = problim,
+               main = rlOpt$main,
+               label = "",
+               xlab = xLab, ylab = yLab)
+          
+        } else {
+
+          plot(re$resList[[resName]],
+               Tlim = Tlim, problim = problim,
+               main = rlOpt$main,
+               xlab = xLab, ylab = yLab)
+
+        }
         
+      } else {
+        ## cat ("ylim = ", as.numeric(c(rlOpt$yLimMin, rlOpt$yLimMax)), "\n")
+        if (packageVersion("Renext") >= "2.0-2") {
+
+          plot(re$resList[[resName]],
+               Tlim = Tlim, problim = problim,
+               ylim = as.numeric(c(rlOpt$yLimMin, rlOpt$yLimMax)),
+               main = rlOpt$main,
+               label = "",
+               xlab = xLab, ylab = yLab)
+
+        } else {
+
+          plot(re$resList[[resName]],
+               Tlim = Tlim, problim = problim,
+               ylim = as.numeric(c(rlOpt$yLimMin, rlOpt$yLimMax)),
+               main = rlOpt$main,
+               xlab = xLab, ylab = yLab)
+
+        }
+
+      }
+      
     } else {
       alarm()
       svalue(datW$sb) <- "no results to plot"
+      
     }
     
     if (DEBUG) cat("exiting 'plotRes'\n")
