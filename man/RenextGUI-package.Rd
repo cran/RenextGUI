@@ -17,17 +17,17 @@
   non-academic tool designed for applied analysis on case studies and
   investigations or comparisons on classical probabilistic models.
   
-  Additional information and material related to this package can be
-  found at the URL
-  \url{https://gforge.irsn.fr/gf/project/renext}.
+  %% Additional information and material related to this package can be
+  %% found at the URL
+  %% \url{https://gforge.irsn.fr/gf/project/renext}.
   
 }
 \details{
 \tabular{ll}{
 Package: \tab RenextGUI\cr
 Type: \tab Package\cr
-Version: \tab 1.0-2\cr
-Date: \tab 2013-10-08\cr
+Version: \tab 1.3-0\cr
+Date: \tab 2015-07-02\cr
 License: \tab GPL >=2\cr
 LazyLoad: \tab yes\cr
 }

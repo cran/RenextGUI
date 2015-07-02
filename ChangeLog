@@ -1,4 +1,40 @@
+	        CHANGES IN RenextGUI package VERSION 1.3-0
+	
+CHANGES
 
+	o Now Depends on 'stats', 'graphics', 'utils' with suitable imports.
+
+        
+
+	CHANGES IN RenextGUI package VERSION 1.2-0
+	
+CHANGES
+
+	o Removed "gpd" to the list of distributions for the excesses.
+
+	o Cancelled changes in RenextGUIGuide for the sake of consistency
+	with the screenshots. These differ slightly from what the current
+	version shows, but are consistent with the version numbers in the 
+	document.
+	
+
+	        CHANGES IN RenextGUI package VERSION 1.1-0
+	
+
+	
+CHANGES
+
+	o Added "GPD" to the list of distributions for the excesses.
+	
+	o Removed link to the gforge in the help pages.
+
+	o Load the R2HTML namespace when needed and use 'R2HTML::'
+	to avoid a NOTE at check.
+
+	o Slight changes in the RenextGUIGuide document.
+
+	
+	
 	        CHANGES IN RenextGUI package VERSION 1.0-2
 	
 BUG FIXES
@@ -77,7 +113,7 @@ CHANGES
 	o The vignette warns the user that it may be necessary to delete
 	empty results when convergence problems occur.
 
-	o When a dum R file is created it is no longer browsed
+	o When a dump R file is created, it is no longer browsed
 	since this created problems under windows. The vignette 
 	was changed in consequence.
 

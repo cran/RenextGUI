@@ -1,3 +1,8 @@
+import(stats)
+import(graphics)
+importFrom("grDevices", "dev.new", "dev.off", "png", "svg")
+importFrom("methods", "is")
+import(utils)
 import(Renext)
 import(gWidgets)
 import(gWidgetstcltk)
