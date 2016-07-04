@@ -4,7 +4,7 @@ importFrom("grDevices", "dev.new", "dev.off", "png", "svg")
 importFrom("methods", "is")
 import(utils)
 import(Renext)
+import(R2HTML)
 import(gWidgets)
 import(gWidgetstcltk)
-
 export(RenextGUI) 

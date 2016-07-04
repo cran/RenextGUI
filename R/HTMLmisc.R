@@ -3,8 +3,9 @@
 ##
 ##********************************************************************
 
-HTML <- function (x, ...) { UseMethod("HTML") }
-
+## if (!require("R2HTML", quietly = TRUE)) {
+##     HTML <- function (x, ...) { UseMethod("HTML") }
+## }
 
 ##*******************************************************************
 ## Function to HTML-ize summary results for objects with (old) class

@@ -1,4 +1,21 @@
-	        CHANGES IN RenextGUI package VERSION 1.3-0
+
+	CHANGES IN RenextGUI package VERSION 1.4-0
+	
+CHANGES
+
+	o The 'R2HML' package is nom imported for the sake of clarity.
+
+	
+	CHANGES IN RenextGUI package VERSION 1.3-1
+	
+CHANGES
+
+	o Using 'requireNamespace' the dispatch of S3 methods for the 
+	HTML generic from the R2HTML package no longer worked. Changed 
+	into 'require'.
+
+ 
+        CHANGES IN RenextGUI package VERSION 1.3-0
 	
 CHANGES
 
@@ -18,7 +35,7 @@ CHANGES
 	document.
 	
 
-	        CHANGES IN RenextGUI package VERSION 1.1-0
+	CHANGES IN RenextGUI package VERSION 1.1-0
 	
 
 	

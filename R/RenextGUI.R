@@ -1852,11 +1852,11 @@ RenextGUI <- function(guiToolkit = c("tcltk", "RGtk2", "WWW"),
   
     HTMLRes <- function(h, ...) {
         
-        if (!requireNamespace("R2HTML", quietly = TRUE)) {
-            alarm()
-            svalue(datW$sb) <- "package 'R2HTML' not accessible. No HTML export possible!"
-            return()
-        } 
+        ## if (!require("R2HTML", quietly = TRUE)) {
+        ##     alarm()
+        ##     svalue(datW$sb) <- "package 'R2HTML' not accessible. No HTML export possible!"
+        ##     return()
+        ## } 
         
         svalue(datW$sb) <- "HTML export of results"
         
